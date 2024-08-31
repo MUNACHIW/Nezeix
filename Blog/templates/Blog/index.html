@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+My Blog
+{% endblock %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'Blog/posts.css' %}">
+<link rel="stylesheet" href="{% static 'Blog/index.css' %}">
+
+{% endblock %}
+
+{% block content%}
+
+
+<section id="welcome">
+    <header>
+        <img src="{% static 'Blog/images/muna.jpg' %}" alt="the author of this blog">
+        <h2>Munachi's Blog</h2>
+    </header>
+    <p>Hi , I am Muna and I love to Blog about tech and the world!</p>
+</section>
+<div class="holder">
+    <section id="latest-posts">
+        <h2>My latest Thoughts</h2>
+        <ul>
+        {% for post in posts%}
+            {% include "Blog/include/post.html"%}
+     {% endfor %}
+        </ul>
+    </section>
+</div>
+<section id="about">
+    <h2 style="border-bottom: 4px solid #fff;">what I Do</h2>
+    <p>
+        I love proramming, I love to help others and
+        I enjoy exploring new technologies in general!
+    </p>
+    <p>
+        My goal is to keep on growing as a developer- and i will be happy to help youe
+    </p>
+</section>
+{% endblock %}
