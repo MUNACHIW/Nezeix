@@ -3,18 +3,21 @@ from datetime import date
 from django.template.loader import render_to_string
 from django.http import HttpResponseNotFound
 from .models import Post
-
-all_posts = []
-
-
-def get_date(post):
-    return post["date"]
+from django.views.generic import ListView
 
 
 # Create your views here.
-def starting_page(request):
-    latest_posts = Post.objects.all().order_by("-date")[:1]
-    return render(request, "Blog/index.html", {"posts": latest_posts})
+class StartingPageView(ListView):
+    template_name = "blog/index.html"
+    model = Post
+    ordering = ["-date"]
+    # changing context objectname for it to be used
+    context_object_name = "posts"
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        data = queryset[:3]
+        return data
 
 
 def posts(request):

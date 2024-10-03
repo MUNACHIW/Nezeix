@@ -8,7 +8,7 @@ My Blog
 {% block css_files %}
 <link rel="stylesheet" href="{% static 'Blog/posts.css' %}">
 <link rel="stylesheet" href="{% static 'Blog/index.css' %}">
-
+<link rel="stylesheet" href="{% static 'Blog/all-posts.css' %}">
 {% endblock %}
 
 {% block content%}
@@ -21,16 +21,21 @@ My Blog
     </header>
     <p>Hi , I am Muna and I love to Blog about tech and the world!</p>
 </section>
-<div class="holder">
-    <section id="latest-posts">
-        <h2>My latest Thoughts</h2>
-        <ul>
-        {% for post in posts%}
-            {% include "Blog/include/post.html"%}
-     {% endfor %}
-        </ul>
-    </section>
-</div>
+
+<section id="all-posts">
+    <h2>My Latest Post</h2>
+
+    <ul>
+        {% for post in posts %}
+        <div class="holder">
+            <section id="latest-posts">
+                {% include "Blog/include/post.html" %}
+            </section>
+        </div>
+        {% endfor %}
+    </ul>
+</section>
+
 <section id="about">
     <h2 style="border-bottom: 4px solid #fff;">what I Do</h2>
     <p>

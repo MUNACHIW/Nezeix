@@ -39,49 +39,45 @@
     }
   }
   
-  #latest-posts{
-    background-color:#353535;
-    border-radius: 12px;
-    width: 78%;
-    margin: -6rem auto 2rem auto;
-    box-shadow: 1px 1px 12px rgba(0, 0, 0, 0.4);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    color: white;
-    align-items: center;
-  }
-  .holder{
-    padding: 0px 10px;
-    background-color: #000;
-  }
   body{
     background-color: #000;
   }
-  #latest-posts ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    gap: 1rem;
-  }
-  #latest-posts ul a{
-    text-align: center;
-    color: white;
-  }
-  #latest-posts img{
-    width: 100%;
-    height: 50vh;
-  }
-  #latest-posts li {
-    flex: 1;
-    color: white;
-  }
+
+
+/* .holder{
+  display: flex;
+  justify-content: space-around;
+} */
+  
+  
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+  gap: 1.5rem;
+}
+
+.post img {
+  width: 7rem;
+  height: 7rem;
+  border-radius: 50%;
+}
+
+.post a {
+  height: 22rem;
+  transform-origin: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  border-radius: 12px;
+  background-color: #353535;
+}
   
   
   #about {
     text-align: center;
     padding: 3rem;
-    background-color: #e48900;
+    background: linear-gradient(to right top, #6305dd, #390281);
     margin-top: 5rem;
   }
   
