@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 {% load static %}
-
+<!-- {% load adsense_tags %} -->
+<!-- {{ post.body|inject_adsense_after_paragraph:"your_template_directory/your_html_file_name.html"|safe }}
+<div class="post-content">
+    {{ post.body|inject_adsense_after_paragraph:"pages/adsense_code.html"|safe }}
+ </div> -->
 
 {% block title %}
 {{post.title}}
@@ -43,10 +47,20 @@
         {{post.content}}
     </p>
 </main>
+<section id="comments">
+    <ul>
+        {% for comment in comments %}
+        <li>
+            <h2>{{comment.user_name}}</h2>
+            <p>{{ comment.text | linebreaks}}</p>
+        </li>
+        {% endfor %}
+    </ul>
+</section>
 <section id="comment-form">
     <h2>Your Comment</h2>
     <form action="{% url 'post-detail-page' post.slug %}" method="post">
-        {{% csrf_token %}}
+        {% csrf_token %}
         {% for form_field in comment_form %}
         <div class="form-control {% if form_field.errors%} invalid {% endif %}">
             {{form_field.label_tag}}

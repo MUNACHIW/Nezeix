@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    "django_adsense_injector",
     "Blog",
     "django.contrib.admin",
     "django.contrib.auth",

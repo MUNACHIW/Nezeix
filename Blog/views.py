@@ -42,10 +42,11 @@ class SinglePostView(View):
             "post": post,
             "post_tags": post.tags.all(),
             "comment_form": CommentForm(),
+            "comments": post.comments.all().order_by("-id"),
         }
         return render(request, "blog/post-detail.html", context)
 
-    def post(self, request):
+    def post(self, request, slug):
         comment_form = CommentForm(request.POST)
         post = Post.objects.get(slug=slug)
         if comment_form.is_valid():
@@ -58,6 +59,7 @@ class SinglePostView(View):
             "post": post,
             "post_tags": post.tags.all(),
             "comment_form": CommentForm(),
+            "comments": post.comments.all().order_by("-id"),
         }
         return render(request, "blog/post-detail.html", context)
 
