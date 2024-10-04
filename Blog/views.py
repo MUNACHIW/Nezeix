@@ -1,9 +1,12 @@
 from django.shortcuts import render, get_object_or_404
 from datetime import date
 from django.template.loader import render_to_string
-from django.http import HttpResponseNotFound
+from django.http import HttpResponseNotFound, HttpResponseRedirect
 from .models import Post
 from django.views.generic import ListView, DetailView
+from .forms import CommentForm
+from django.views import View
+from django.urls import reverse
 
 
 # Create your views here.
@@ -32,16 +35,33 @@ class AllPostView(ListView):
 #     return render(request, "Blog/all-posts.html", {"all_posts": all_posts})
 
 
-class SinglePostView(DetailView):
-    template_name = "Blog/post-detail.html"
-    model = Post
+class SinglePostView(View):
+    def get(self, request, slug):
+        post = Post.objects.get(slug=slug)
+        context = {
+            "post": post,
+            "post_tags": post.tags.all(),
+            "comment_form": CommentForm(),
+        }
+        return render(request, "blog/post-detail.html", context)
+
+    def post(self, request):
+        comment_form = CommentForm(request.POST)
+        post = Post.objects.get(slug=slug)
+        if comment_form.is_valid():
+            comment = comment_form.save(commit=False)
+            comment.post = post
+            comment.save()
+            return HttpResponseRedirect(reverse("post-detail-page", args=[slug]))
+
+        context = {
+            "post": post,
+            "post_tags": post.tags.all(),
+            "comment_form": CommentForm(),
+        }
+        return render(request, "blog/post-detail.html", context)
 
     # for getting correct slug if you are not using id or primary key or detail to also get or access tags
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context["post_tags"] = self.object.tags.all()
-        return context
 
 
 # def post_detail(request, slug):
