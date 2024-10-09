@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-^9#un_=esxdw@d8@$6gjefp0coj_yaj@@q9aey93ej%9cam!d7"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -121,6 +121,9 @@ STATIC_URL = "static/"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
+STATIC_ROOT = BASE_DIR / "staticfiles"
+# never forget to run a command for collecting static files during deployment
+# THIS IS THE COMMAND python manage.py collectstatic
 
 STATICFILES_DIRS = [BASE_DIR / "static"]
 

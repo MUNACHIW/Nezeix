@@ -1,0 +1,72 @@
+  
+  #main-navigation {
+    background-color: #390281;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+  }
+  #stored-post{
+    margin: 8rem auto 3rem auto;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    background:#353535 ;
+    width: 90%;
+    max-width: 80rem;
+    display: flex;
+    align-items:center ;
+    justify-content: space-evenly;
+    flex-wrap:wrap-reverse ;
+
+  }
+  #stored-post h1{
+    color: whitesmoke;
+    font-size: 20px;
+    font-size: 40px;
+  }
+  #stored-post ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+  }
+  #stored-post li {
+    width: 45%;
+    padding: 1rem;
+    margin:1rem 0;
+    max-width: 60rem;
+  }
+  #stored-post  a{
+    display: block;
+    padding: 1rem;
+    width: 100%;
+    text-decoration: none;
+    border: 1px solid #ccc;
+    color: rgb(36, 36, 36);
+    font-weight: bold;
+  }
+  #stored-post  a img{
+    width: 100%;
+  }
+  #stored-post  a:hover, #stored-post  a:active{
+    background-color: #ccc;
+  }
+  @media screen and (max-width:1115px) {
+    #stored-post ul{
+      align-items: center;
+    }
+    #stored-post li{
+      width:100% ;
+    }
+  }
+  @media screen and (max-width:504px){
+    #stored-post ul{
+     width: 100%;
+    }
+    #stored-post h1{
+      font-size: 27px;
+    }
+  }
