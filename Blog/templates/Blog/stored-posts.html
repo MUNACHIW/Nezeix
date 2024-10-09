@@ -3,15 +3,22 @@
 {% block title %}
 Read Later
 {% endblock %}
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'Blog/stored-posts.css'%}">
+
+{% endblock css_files %}
 
 {% block content %}
-<section>
+<section id="stored-post">
     {% if not has_posts %}
     <p>You didnt save any post for later</p>
     {% endif %}
     <ul>
         {% for post in posts %}
-        <li><a href="{% url  'post-detail-page' post.slug %}">{{post.title}}</a></li>
+        <li><a href="{% url  'post-detail-page' post.slug %}">
+                <img id="image1" src="{{ post.image.url }}" alt="{{post.title}}">
+                {{post.title}}
+            </a></li>
         {% endfor %}
     </ul>
 </section>

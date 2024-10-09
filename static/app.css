@@ -34,6 +34,7 @@ h3 {
 #main-navigation a {
   text-decoration: none;
   color: white;
+  margin-left: 1rem;
   font-weight: bold;
 }
 
