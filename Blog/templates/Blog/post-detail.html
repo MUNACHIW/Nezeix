@@ -1,10 +1,8 @@
 {% extends "base.html" %}
 {% load static %}
-<!-- {% load adsense_tags %} -->
-<!-- {{ post.body|inject_adsense_after_paragraph:"your_template_directory/your_html_file_name.html"|safe }}
-<div class="post-content">
-    {{ post.body|inject_adsense_after_paragraph:"pages/adsense_code.html"|safe }}
- </div> -->
+{% load adsense_tags %}
+
+
 
 {% block title %}
 {{post.title}}
@@ -60,10 +58,15 @@
 </section>
 
 <main>
+
     <p>
         <!-- {{post.content|linebreaks}} -->
         {{post.content}}
     </p>
+    <div class="post-content">
+        {{ post.body|inject_adsense_after_paragraph:adsense_code|safe }}
+    </div>
+
 </main>
 <section id="comments">
     <ul>
