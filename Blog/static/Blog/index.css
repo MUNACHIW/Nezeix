@@ -80,14 +80,68 @@ ul {
     padding: 3rem;
     background: linear-gradient(to right top, #6305dd, #390281);
     margin-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items:center ;
   }
   
   #about h2 {
     font-size: 3rem;
     color: white;
+    width: 100%;
   }
   
   #about p {
     font-size: 1.5rem;
     color: #fff;
   }
+  .subscribe{
+    margin-top: 40px;
+  }
+  .subscribe label{
+    color: white;   
+    line-height: 40px;
+    font-size: 20px;
+  }
+  .subscribe input{
+    background: transparent;
+    border: 1px solid white;
+    outline: none;
+    padding: 4px;
+    border-radius: 4px;
+    color: white;
+    opacity: 60%;
+  }
+  .subscribe  button{
+    padding: 4px;
+    border-radius: 4px;
+    outline: none;
+    border:1px solid #390281;
+  }
+  .subscribe  button:hover,
+  .subscribe  button:active{
+    background: #390281;
+    color: white;
+    border: 1px solid #ffe1bf;
+  }
+  .socials{
+    width: 30%;
+    background: white;
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    padding: 4px;
+    border-radius: 8px;
+  }
+  .socials a{
+    color: #000;
+  }
+  .socials a:active,  .socials a:hover{
+  color: #390281;
+    border: 1px solid #ffe1bf;
+  }
+@media screen and (max-width:768px){
+  .socials{
+    width: 80%;
+  }
+}

@@ -1,8 +1,8 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from datetime import date
 from django.template.loader import render_to_string
 from django.http import HttpResponseNotFound, HttpResponseRedirect
-from .models import Post
+from .models import Post, Subscribers
 from django.views.generic import ListView, DetailView
 from .forms import CommentForm
 from django.views import View
@@ -116,3 +116,13 @@ class ReadLaterView(View):
             stored_posts.remove(post_id)
         request.session["stored_posts"] = stored_posts
         return HttpResponseRedirect("/")
+
+
+def Subscribe(request):
+    if request.method == "POST":
+        email = request.POST.get("email")
+        if email.strip() == "":
+            return False
+        new_entry = Subscribers(Email=email)
+        new_entry.save()
+        return redirect("starting-page")

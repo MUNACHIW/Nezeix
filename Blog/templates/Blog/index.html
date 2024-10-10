@@ -9,6 +9,7 @@ DevMonarch
 <link rel="stylesheet" href="{% static 'Blog/posts.css' %}">
 <link rel="stylesheet" href="{% static 'Blog/index.css' %}">
 <link rel="stylesheet" href="{% static 'Blog/all-posts.css' %}">
+<link rel="stylesheet" href="{% static 'Blog/bootstrap-icons/bootstrap-icons.css'%}">
 {% endblock %}
 
 {% block content%}
@@ -19,7 +20,8 @@ DevMonarch
         <img src="{% static 'Blog/images/muna.jpg' %}" alt="the author of this blog">
         <h2>Muna's Blog</h2>
     </header>
-    <p>Hi , I am Muna I blog about Tech, Lifestyle & the world </p>
+    <p>Hi , I am Muna an Independent Software developer & Entrepreneur.<br> I Blog about Tech, LifeStyle, Sports and the
+        world </p>
 </section>
 
 <section id="all-posts">
@@ -45,5 +47,21 @@ DevMonarch
     <p>
         My goal is to keep on growing as an entrepreneur and i will be happy to help you out
     </p>
+    <form class="subscribe" method="post" action="{% url 'subscribeinit' %}" onsubmit="return validation()">
+        {% csrf_token %}
+        <label for="email">Subscribe To My NewsLetter</label>
+        <div>
+            <input type="email" placeholder="Your Email address" id="email" name="email">
+            <button type="submit">Subscribe</button>
+        </div>
+    </form>
+    <ul class="socials">
+        <li><a href="https://web.facebook.com/profile.php?id=100089818970037" class="bi bi-facebook"></a></li>
+        <li><a href="https://www.instagram.com/mr.munachi2024?igsh=YzljYTk1ODg3Zg==" class="bi bi-instagram"></a></li>
+        <li><a href="https://x.com/codewithmuna?s=09">X</a></li>
+        <li><a href="https://www.linkedin.com/in/munachimso-covenant2-32a437278/" class="bi bi-linkedin"></a></li>
+        <li><a href="https://github.com/MUNACHIW" class="bi bi-github"></a></li>
+    </ul>
 </section>
+<script src="{% static 'Blog/script.js'%}"></script>
 {% endblock %}
