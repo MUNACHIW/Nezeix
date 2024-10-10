@@ -126,6 +126,10 @@ body {
     background-color: #282727;
     border: 1px solid #ccc;
   }
+  .post-content{
+    width: 100%;
+    padding: 10px;
+  }
   .errorlist{
     list-style: none;
     margin: 0.5rem 0;
