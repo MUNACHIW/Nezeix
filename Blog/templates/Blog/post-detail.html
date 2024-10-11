@@ -32,12 +32,15 @@
             {% for tag in post_tags %}
             <span class="tags">{{tag.caption}}</span>
             {% endfor %}
+            <form method="post" id="read-later" action="{% url 'read-later' %}">
+                {% if saved_for_later %}
+                <button type="submit">Read-Later</button>
+                {% else %}
+                <button type="submit">Remove From Read-Later</button>
+                {%endif%}
+            </form>
         </div>
-    </div>
-    <div>
-        <button>
-            Read Later
-        </button>
+
     </div>
     <article>
         <img src="{{ post.image.url }}" alt="Post Title">
