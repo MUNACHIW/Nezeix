@@ -7,7 +7,25 @@
 html {
   font-family: 'Open Sans', 'Lato', sans-serif;
 }
+::-webkit-scrollbar {
+  width: 10px;
+}
 
+/* Track */
+::-webkit-scrollbar-track {
+  background: #b1b3b0;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #6305dd ;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background:  #1b033b;
+  transition: .1s ease;
+}
 body {
   margin: 0;
 }
