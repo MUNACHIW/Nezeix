@@ -43,7 +43,6 @@
                 {%endif%}
             </form>
         </div>
-
     </div>
     <article>
         <img src="{{ post.image.url }}" alt="Post Title">
@@ -57,7 +56,8 @@
 <main>
     <p>
         <!-- {{post.content|linebreaks}} -->
-        {{post.content}}
+        {{post.content}}<br>
+        To read more blog like this <a href="{% url 'posts-page' %}"> All-post </a>
     </p>
 </main>
 <section id="comments">
