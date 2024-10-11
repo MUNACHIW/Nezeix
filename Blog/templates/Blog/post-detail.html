@@ -1,8 +1,10 @@
 {% extends "base.html" %}
 {% load static %}
-{% load adsense_tags %}
-
-
+<!-- {% load adsense_tags %} -->
+<!-- {{ post.body|inject_adsense_after_paragraph:"your_template_directory/your_html_file_name.html"|safe }}
+<div class="post-content">
+    {{ post.body|inject_adsense_after_paragraph:"pages/adsense_code.html"|safe }}
+ </div> -->
 
 {% block title %}
 {{post.title}}
@@ -31,23 +33,12 @@
             <span class="tags">{{tag.caption}}</span>
             {% endfor %}
         </div>
-        <div id="read-later">
-            <form action="{% url 'read-later' %}" method="post">
-                {% csrf_token %}
-                <input type="hidden" name="post_id" value="{{ post.id }}">
-                <button>
-
-                    {% if saved_for_later %}
-                    Remove from "Read Later" List
-                    {% else %}
-                    Read Later
-                    {% endif %}
-                </button>
-            </form>
-
-        </div>
     </div>
-
+    <div>
+        <button>
+            Read Later
+        </button>
+    </div>
     <article>
         <img src="{{ post.image.url }}" alt="Post Title">
         <address>By <a href="mailto:{{post.author.email_address}}">{{post.author}}</a></address>
@@ -58,15 +49,10 @@
 </section>
 
 <main>
-
     <p>
         <!-- {{post.content|linebreaks}} -->
         {{post.content}}
     </p>
-    <div class="post-content">
-        {{ post.body|inject_adsense_after_paragraph:adsense_code|safe }}
-    </div>
-
 </main>
 <section id="comments">
     <ul>
