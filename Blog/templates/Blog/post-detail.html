@@ -33,10 +33,13 @@
             <span class="tags">{{tag.caption}}</span>
             {% endfor %}
             <form method="post" id="read-later" action="{% url 'read-later' %}">
+                <input type="hidden" name="post_id" value="{{post.id}}">
+                {% csrf_token %}
                 {% if saved_for_later %}
-                <button type="submit">Read-Later</button>
-                {% else %}
                 <button type="submit">Remove From Read-Later</button>
+
+                {% else %}
+                <button type="submit">Read-Later</button>
                 {%endif%}
             </form>
         </div>
