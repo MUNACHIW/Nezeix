@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
-<!-- {% load adsense_tags %} -->
+{% load adsense_tags %}
 <!-- {{ post.body|inject_adsense_after_paragraph:"your_template_directory/your_html_file_name.html"|safe }}
 <div class="post-content">
     {{ post.body|inject_adsense_after_paragraph:"pages/adsense_code.html"|safe }}
@@ -58,6 +58,8 @@
         <!-- {{post.content|linebreaks}} -->
         {{post.content}}<br>
         To read more blog like this <a href="{% url 'posts-page' %}"> All-post </a>
+
+        {{ post.body|inject_adsense_after_paragraph:adsense_code|safe }}
     </p>
 </main>
 <section id="comments">
