@@ -16,7 +16,9 @@ Read Later
     <ul>
         {% for post in posts %}
         <li><a href="{% url  'post-detail-page' post.slug %}">
-                <img id="image1" src="{{ post.image.url }}" alt="{{post.title}}">
+                <iframe id="image1" src="{{ post.youtube_url }}" width="250" height="200" title="Youtube_video"
+                    style="border-radius: 6px; border:none;">
+                </iframe>
                 {{post.title}}
             </a></li>
         {% endfor %}

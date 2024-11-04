@@ -45,7 +45,8 @@
         </div>
     </div>
     <article>
-        <img src="{{ post.image.url }}" alt="Post Title">
+        <iframe id="image1" src="{{ post.youtube_url }}" width="300" height="200" title="Youtube_video"
+            style="border-radius: 6px; border:none;"> </iframe>
         <address>By <a href="mailto:{{post.author.email_address}}">{{post.author}}</a></address>
         <div>
             Last Updated on <time>{{post.date|date:"d M Y"}}</time>
