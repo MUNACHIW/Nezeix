@@ -21,11 +21,7 @@
     color: white;
   }
   
-  .post img {
-    width: 5rem;
-    height: 5rem;
-    object-fit: cover;
-  }
+
   
   .post h3 {
     margin: 0.25rem 0;
