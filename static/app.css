@@ -68,7 +68,7 @@ h3 {
   color: #cf79f1;
 }
 body{
-  background-color:rgb(65, 62, 62);
+  background-color:#ccc;
 }
 
 #main-navigation h1 a:hover,
@@ -79,5 +79,5 @@ a{
   text-decoration: none;
 }
 .copyright{
-  color: white;
+  color: black;
 }

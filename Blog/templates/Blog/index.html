@@ -18,14 +18,13 @@ DevMonarch
 <section id="welcome">
     <header>
         <img src="{% static 'Blog/images/muna.jpg' %}" alt="the author of this blog">
-        <h2>Muna's Blog</h2>
+        <h2>Nezeix Blog</h2>
     </header>
-    <p>Hi , I am Muna an Independent Software developer & Entrepreneur.<br> I Blog about Tech, LifeStyle, Sports and the
-        world </p>
+    <p>Hello this is Nezeix and we blog about.<br>Tech,Lifestyle & Music etc. </p>
 </section>
 
 <section id="all-posts">
-    <h2>My Latest Post</h2>
+    <h2>Latest Post</h2>
 
     <ul>
         {% for post in posts %}
@@ -39,24 +38,24 @@ DevMonarch
 </section>
 
 <section id="about">
-    <h2 style="border-bottom: 4px solid #fff;">what I Do</h2>
+    <h2 style="border-bottom: 4px solid #fff;">why Nezeix</h2>
     <p>
-        I love Programming, Music & sports. I love to help others also,
-        I enjoy exploring new technologies in general!
+        Nezeix was inspired by the enthusiastic idea of accumulating informations related to social media, brands &
+        business, music and technology
     </p>
     <p>
-        My goal is to keep on growing as an entrepreneur and i will be happy to help you out
+        Our goal is to keep on growing hopefully we would probably be the next
+        great internet archive
     </p>
     <form class="subscribe" method="post" action="{% url 'subscribeinit' %}" onsubmit="return validation()">
         {% csrf_token %}
-        <label for="email">Subscribe To My NewsLetter</label>
+        <label for="email">Subscribe To Our NewsLetter</label>
         <div>
             <input type="email" placeholder="Your Email address" id="email" name="email">
             <button type="submit">Subscribe</button>
         </div>
     </form>
     <ul class="socials">
-        <li><a href="https://web.facebook.com/profile.php?id=100089818970037" class="bi bi-facebook"></a></li>
         <li><a href="https://www.instagram.com/mr.munachi2024?igsh=YzljYTk1ODg3Zg==" class="bi bi-instagram"></a></li>
         <li><a href="https://x.com/codewithmuna?s=09">X</a></li>
         <li><a href="https://www.linkedin.com/in/munachimso-covenant2-32a437278/" class="bi bi-linkedin"></a></li>

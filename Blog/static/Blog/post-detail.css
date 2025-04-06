@@ -1,5 +1,5 @@
 body {
-    background-color: #000;
+    background-color: #ccc;
   }
   
   #main-navigation {
@@ -68,11 +68,11 @@ body {
     width: 90%;
     max-width: 90rem;
     margin: 3rem auto;
-    background-color: #353535;
+    background-color: white;
     padding: 1rem;
     border-radius: 12px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-    color: white;
+    color: black;
   }
   main p{
     width: 100%;
@@ -88,10 +88,10 @@ body {
     border-radius: 12px;
     width: 90%;
     max-width: 40rem;
-    background: #353535;
+    background: white;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
     padding: 1rem;
-    color: white;
+    color: black;
   }
   #comment-form button{
     font: inherit;
@@ -114,7 +114,7 @@ body {
     font-weight: bold;
     margin-bottom: 0.5rem;
     display: block;
-    color: white;
+    color: black;
   }
   .form-control input, .form-control textarea{
     display: block;
@@ -122,8 +122,8 @@ body {
     font: inherit;
     padding: 0.25rem;
     border-radius: 6px;
-    color: white;
-    background-color: #282727;
+    color: black;
+    background-color: #ccc;
     border: 1px solid #ccc;
   }
   .post-content{
@@ -165,10 +165,10 @@ body {
   border-radius: 12px;
   width: 90%;
   max-width: 60rem;
-  background: #353535;
+  background: white;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
   padding: 1rem 2rem;
-  color: white;
+  color: black;
 }
 #comments ul{
   list-style: none;
