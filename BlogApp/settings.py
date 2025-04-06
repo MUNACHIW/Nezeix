@@ -12,6 +12,10 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 
+# for hosting when domain or address not available environ variables
+# all hosting accept this
+from os import getenv
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -23,14 +27,17 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-^9#un_=esxdw@d8@$6gjefp0coj_yaj@@q9aey93ej%9cam!d7"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
+DEBUG = getenv("IS_DEVELOPMENT", True)
+# for more flexibility between True and false statement when in production and development
+# ALLOWED_HOSTS = [getenv("APP_HOST")]
 ALLOWED_HOSTS = []
+# once deployed make sure you provide a value for app hosting
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    "django_adsense_injector",
     "Blog",
     "django.contrib.admin",
     "django.contrib.auth",
@@ -120,8 +127,13 @@ STATIC_URL = "static/"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
+STATIC_ROOT = BASE_DIR / "staticfiles"
+# never forget to run a command for collecting static files during deployment
+# THIS IS THE COMMAND python manage.py collectstatic
 
 STATICFILES_DIRS = [BASE_DIR / "static"]
 
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+MEDIA_ROOT = BASE_DIR / "uploads"
+MEDIA_URL = "/files/"

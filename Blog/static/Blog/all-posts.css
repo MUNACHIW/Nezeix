@@ -1,23 +1,26 @@
 body {
-    background-color: #000;
+    background-color: #ccc;
   }
   
   #main-navigation {
     background-color: #390281;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    position: fixed;
+    width: 100%;
+    z-index: 100;
   }
   
   #all-posts {
     margin: 7rem auto;
     width: 90%;
     max-width: 60rem;
-    background: #000;
+    background: #ccc;
   }
   
   #all-posts h2 {
     text-align: center;
     font-size: 2rem;
-    color: white;
+    color: black;
     margin: 3rem 0;
 
   }
@@ -28,19 +31,17 @@ body {
     padding: 0;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
-    gap: 1.5rem;
+    gap: 10px;
   }
   
-  .post img {
-    width: 7rem;
-    height: 7rem;
-    border-radius: 50%;
-  }
+
   
   .post a {
-    height: 22rem;
+    height: auto;
     transform-origin: center;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
     border-radius: 12px;
-    background-color: #353535;
+    background-color: #fff;
+    margin: 10px;
+    color: black;
   }

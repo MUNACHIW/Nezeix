@@ -1,9 +1,13 @@
 {% extends "base.html" %}
- {% load static %}
-
+{% load static %}
+{% load adsense_tags %}
+<!-- {{ post.body|inject_adsense_after_paragraph:"your_template_directory/your_html_file_name.html"|safe }}
+<div class="post-content">
+    {{ post.body|inject_adsense_after_paragraph:"pages/adsense_code.html"|safe }}
+ </div> -->
 
 {% block title %}
- {{post.title}}
+{{post.title}}
 {% endblock %}
 
 
@@ -13,18 +17,80 @@
 {% endblock %}
 
 {% block content %}
-    <section id="summary">
+{% if comment_form.errors %}
+
+<div id="alert">
+    <h2>Saving the comment failed</h2>
+    <p>Please check the comment form below the post and fix your errors</p>
+    <a href="#comment-form">Fix!</a>
+</div>
+{% endif %}
+<section id="summary">
+    <div class="holder-article">
         <h2>{{post.title}}</h2>
-        <article>
-            <img src="{% static 'Blog/images/'|add:post.image%}" alt="Post Title">
-            <address>By {{post.author}}</address>
-            <div>
-               Last Updated on <time >{{post.date|date:"d M Y"}}</time>
-            </div>
-        </article>
-    </section>
-    <main>
-       {{post.content|linebreaks}}
-    </main>
+        <div>
+            {% for tag in post_tags %}
+            <span class="tags">{{tag.caption}}</span>
+            {% endfor %}
+            <form method="post" id="read-later" action="{% url 'read-later' %}">
+                <input type="hidden" name="post_id" value="{{post.id}}">
+                {% csrf_token %}
+                {% if saved_for_later %}
+                <button type="submit">Remove From Read-Later</button>
+
+                {% else %}
+                <button type="submit">Read-Later</button>
+                {%endif%}
+            </form>
+        </div>
+    </div>
+    <article>
+        <iframe id="image1" src="{{ post.youtube_url }}" width="300" height="200" title="Youtube_video"
+            style="border-radius: 6px; border:none;"> </iframe>
+        <address>By <a href="mailto:{{post.author.email_address}}">{{post.author}}</a></address>
+        <div>
+            Last Updated on <time>{{post.date|date:"d M Y"}}</time>
+        </div>
+    </article>
+</section>
+
+<main>
+    <p>
+        <!-- {{post.content|linebreaks}} -->
+        {{post.content}}<br>
+        To read more blog like this <a href="{% url 'posts-page' %}"> All-post </a>
+
+        {{ post.body|inject_adsense_after_paragraph:adsense_code|safe }}
+    </p>
+</main>
+<section id="comments">
+    <ul>
+        {%if comments %}
+        {% for comment in comments %}
+        <li>
+            <h2>{{comment.user_name}}</h2>
+            <p>{{ comment.text | linebreaks}}</p>
+        </li>
+        {% endfor %}
+        {% else %}
+        <h2>No comments yet</h2>
+        {% endif %}
+
+    </ul>
+</section>
+<section id="comment-form">
+    <h2>Your Comment</h2>
+    <form action="{% url 'post-detail-page' post.slug %}" method="post">
+        {% csrf_token %}
+        {% for form_field in comment_form %}
+        <div class="form-control {% if form_field.errors%} invalid {% endif %}">
+            {{form_field.label_tag}}
+            {{form_field}}
+            {{form_field.errors}}
+        </div>
+        {%endfor%}
+        <button type="submit">Send Comment</button>
+    </form>
+</section>
 
 {% endblock %}

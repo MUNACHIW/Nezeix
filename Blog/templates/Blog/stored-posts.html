@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+Read Later
+{% endblock %}
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'Blog/stored-posts.css'%}">
+
+{% endblock css_files %}
+
+{% block content %}
+<section id="stored-post">
+    {% if not has_posts %}
+    <p>You didnt save any post for later</p>
+    {% endif %}
+    <ul>
+        {% for post in posts %}
+        <li><a href="{% url  'post-detail-page' post.slug %}">
+                <iframe id="image1" src="{{ post.youtube_url }}" width="250" height="200" title="Youtube_video"
+                    style="border-radius: 6px; border:none;">
+                </iframe>
+                {{post.title}}
+            </a></li>
+        {% endfor %}
+    </ul>
+    <h1>Your Read Later List</h1>
+</section>
+{% endblock %}

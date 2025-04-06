@@ -6,20 +6,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title%} {% endblock %}</title>
-    <link rel="stylesheet" href="{% static "app.css" %}">
+    <link rel="stylesheet" href="{% static 'app.css' %}">
     {% block css_files %} {% endblock %}
 </head>
 
 <body>
     <header id="main-navigation">
-        <h1><a href="{% url "starting-page"%}">Muna's Blog page</a></h1>
+        <h1><a href="{% url 'starting-page' %}">Nezeix</a></h1>
         <nav>
-            <a href="/post">All posts</a>
+            <a href="{% url 'posts-page' %}">All posts</a>
+            <a href="{% url 'read-later' %}">Read Later</a>
         </nav>
     </header>
     {% block content %}
 
     {% endblock %}
+    <footer class="copyright">
+        <div class="container">
+            <p>&copy; 2024 DevMonarch. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 
 </html>

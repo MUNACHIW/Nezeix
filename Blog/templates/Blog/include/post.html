@@ -1,15 +1,14 @@
-{% load static %}
-
-
 <li>
     <article class="post">
-        <a  href="{% url 'post-detail-page' post.slug %}" style="text-decoration: none;">
-            <img id="image1" src="{% static 'Blog/images/'|add:post.image %}" alt="{{post.title}}">
+        <a href="{% url 'post-detail-page' post.slug %}" style="text-decoration: none;">
+            <iframe id="image1" src="{{ post.youtube_url }}" width="300" height="200" title="Youtube_video"
+                style="border-radius: 6px; border:none;"> </iframe>
             <div class="post__content">
-                <h3 style="color:white;">{{post.title }}</h3>
-                <p style="color:white;">
-                     {{post.excerpt}}
+                <h3 style="color:black;">{{post.title }}</h3>
+                <p style="color:black;">
+                    {{post.excerpt}}
                 </p>
+                <p>Click To View</p>
             </div>
         </a>
     </article>
